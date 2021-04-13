@@ -1,6 +1,4 @@
 import React from 'react';
-// import ReactCSSTransitionGroup from 'react-transition-group';
-var ReactCSSTransitionGroup = require('react-transition-group');
 
 class Draggable extends React.Component{
   constructor(props){
@@ -87,16 +85,17 @@ class Draggable extends React.Component{
 
   toggleHidden(e){
     e.preventDefault();
-    debugger
     this.setState({dragging: false, hidden: !this.state.hidden});
   }
 
 
 
   render(){
-
-    return <div ref={this.ref} 
-      style={{position:"absolute",left:this.state.pos.x,top:this.state.pos.y}}>
+    let hidden = this.state.hidden ? 'hidden' : '';
+    return <div ref={this.ref}
+      style={{position:"absolute",left:this.state.pos.x,top:this.state.pos.y}}
+      hidden={hidden}
+      >
 
         <div className="my-draggable"
           onMouseDown={e=>this.onMouseDown(e)}
@@ -106,7 +105,7 @@ class Draggable extends React.Component{
           <h3>{this.props.description}</h3>
           <br/>
         </div>
-          <button>Hide</button>
+          <button onClick={this.toggleHidden}>Hide</button>
       </div>
 
   }
