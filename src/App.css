@@ -53,3 +53,11 @@ h1, h2, h3, h4, h5{
   transition: 3s;
 }
 
+.hidden{
+  display:none;
+}
+
+.hideButton{
+  display:flex;
+  justify-content:flex-start;
+}

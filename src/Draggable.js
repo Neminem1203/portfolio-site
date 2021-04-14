@@ -5,6 +5,8 @@ class Draggable extends React.Component{
     super(props);
     let x = this.props.x ? this.props.x : 0
     let y = this.props.y ? this.props.y : 0
+    let hidden = this.props.hidden !== undefined ? this.props.hidden : false;
+    debugger
     this.state ={
       pos:{
         x:x,
@@ -12,7 +14,7 @@ class Draggable extends React.Component{
       },
       dragging: false,
       rel: null,
-      hidden: false,
+      hidden: hidden,
     }
     this.windowHeight = window.innerHeight;
     this.windowWidth = window.innerWidth;
@@ -91,21 +93,19 @@ class Draggable extends React.Component{
 
 
   render(){
-    let hidden = this.state.hidden ? 'hidden' : '';
+    let className = this.state.hidden ? 'my-draggable hidden' : 'my-draggable';
+    let hideText = this.state.hidden ? 'Show' : 'Hide';
     return <div ref={this.ref}
       style={{position:"absolute",left:this.state.pos.x,top:this.state.pos.y}}
-      hidden={hidden}
       >
-
-        <div className="my-draggable"
+        <div className="hideButton">
+          <button onClick={this.toggleHidden}>{hideText}</button>
+        </div>
+        <div className={className}
           onMouseDown={e=>this.onMouseDown(e)}
           >
-          <h1>{this.props.title}</h1>
-          <h5>{this.props.subtitle}</h5>
-          <h3>{this.props.description}</h3>
-          <br/>
+          {this.props.children}
         </div>
-          <button onClick={this.toggleHidden}>Hide</button>
       </div>
 
   }
