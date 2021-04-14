@@ -41,8 +41,8 @@ h1, h2, h3, h4, h5{
 }
 .my-draggable {
   cursor: point;
-  max-width: 600px;
-  max-height: 600px;
+  max-width: 40vw;
+  max-height: 80vh;
   background-color: #cca;
   padding: 15px;
   border: 1px black;
@@ -60,4 +60,21 @@ h1, h2, h3, h4, h5{
 .hideButton{
   display:flex;
   justify-content:flex-start;
+}
+
+/*https://stackoverflow.com/questions/826782/how-to-disable-text-selection-highlighting*/
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
+
+.site-links{
+  display:flex;
+  justify-content:space-around;
 }
