@@ -39,11 +39,14 @@
 h1, h2, h3, h4, h5{
   margin: 5px;
 }
+body{
+  background-color: #222
+}
 .my-draggable {
   cursor: point;
   max-width: 40vw;
   max-height: 80vh;
-  background-color: #cca;
+  background-color: #cba;
   padding: 15px;
   border: 1px black;
   display: flex;
@@ -77,4 +80,24 @@ h1, h2, h3, h4, h5{
 .site-links{
   display:flex;
   justify-content:space-around;
+}
+
+.bookshelf{
+  background-color:#AAA;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+  align-items: center;
+  width: 180px;
+  height: 100vh;
+}
+
+.floating{
+  height: 55px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.book{
+  width:130px;
 }

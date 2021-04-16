@@ -3,10 +3,12 @@ import React from 'react';
 class Draggable extends React.Component{
   constructor(props){
     super(props);
-    let x = this.props.x ? this.props.x : 0
-    let y = this.props.y ? this.props.y : 0
-    let hidden = this.props.hidden !== undefined ? this.props.hidden : false;
+    let x = this.props.x !== undefined ? this.props.x : 0
+    let y = this.props.y !== undefined ? this.props.y : 0
+    debugger
+    let hidden = this.props.hidden !== undefined ? this.props.hidden : true;
     this.title = this.props.title !== undefined ? this.props.title : "Show"
+    
     this.state ={
       pos:{
         x:x,
@@ -35,9 +37,9 @@ class Draggable extends React.Component{
     }
   }
   onMouseUp(e) {
+    e.preventDefault();
+    e.stopPropagation();
     this.setState({dragging: false})
-    e.stopPropagation()
-    e.preventDefault()
   }
 
   onMouseDown(e) {
@@ -57,6 +59,7 @@ class Draggable extends React.Component{
 
 
   onMouseMove(e) {
+    e.preventDefault();
     if (!this.state.dragging) return
     // setup for window width, height and x and y of the react component
     let x = e.pageX - this.state.rel.x;
@@ -87,22 +90,23 @@ class Draggable extends React.Component{
 
   toggleHidden(e){
     e.preventDefault();
+    e.stopPropagation();
     this.setState({dragging: false, hidden: !this.state.hidden});
   }
 
 
 
   render(){
-    let className = this.state.hidden ? 'my-draggable hidden' : 'my-draggable';
+    let classNameBox = this.state.hidden ? 'my-draggable hidden' : 'my-draggable';
+    let classNameFloat = this.state.hidden? "floating book hideButton noselect" : "floating hideButton noselect"
     let hideText = this.state.hidden ? this.title : 'Hide';
-    return <div ref={this.ref}
+    return <div ref={this.ref} onMouseDown={e=>this.onMouseDown(e)}
       style={{position:"absolute",left:this.state.pos.x,top:this.state.pos.y}}
       >
-        <div className="hideButton noselect" onClick={this.toggleHidden}>
+        <div className={classNameFloat}  onDoubleClick={this.toggleHidden} style={{backgroundColor:this.props.backgroundColor}}>
           {hideText}
         </div>
-        <div className={className}
-          onMouseDown={e=>this.onMouseDown(e)}
+        <div className={classNameBox}
           >
           {this.props.children}
         </div>
