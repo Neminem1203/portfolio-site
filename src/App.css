@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  display:flex;
 }
 
 .App-logo {
@@ -88,7 +89,7 @@ body{
   flex-direction: column;
   justify-content:space-between;
   align-items: center;
-  width: 180px;
+  min-width: 180px;
   height: 100vh;
 }
 
@@ -100,4 +101,8 @@ body{
 }
 .book{
   width:130px;
+}
+
+.mainScreen{
+  color:#AAA;
 }

@@ -4,8 +4,7 @@ class Draggable extends React.Component{
   constructor(props){
     super(props);
     let x = this.props.x !== undefined ? this.props.x : 0
-    let y = this.props.y !== undefined ? this.props.y : 0
-    debugger
+    let y = this.props.y !== undefined ? this.props.y : 0 
     let hidden = this.props.hidden !== undefined ? this.props.hidden : true;
     this.title = this.props.title !== undefined ? this.props.title : "Show"
     

@@ -69,10 +69,12 @@ function App() {
             y={projectY+idx*offSet}
             backgroundColor={project.color}
           />
-            
         })}
-
-      
+      </div>
+      <div className="mainScreen">
+        <h1>Paul Tan</h1>
+        <h3>Software Developer</h3>
+        <p>Hey! Welcome to my portfolio site! You can drag my portfolio sites around and double click to open them for more information with live links and github links</p>
       </div>
     </div>
   );
