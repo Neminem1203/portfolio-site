@@ -122,3 +122,20 @@ body{
   width: 15%;
   padding: 10px;
 }
+
+.sort-buttons{
+  cursor: pointer;
+  display:flex;
+  justify-content:center;
+  align-items: center;
+  padding: 10px;
+  background-color:black;
+}
+
+.selected{
+  background-color:gray;
+}
+
+.reversed{
+  background-color:lightgray;
+}
