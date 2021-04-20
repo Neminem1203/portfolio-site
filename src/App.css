@@ -118,9 +118,23 @@ body{
   justify-content: space-evenly;
   flex-wrap:wrap;
 }
-.skills div{
+.skills > div{
+  min-width: 15%;
   width: 15%;
+  max-width: 15%;
   padding: 10px;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+}
+
+
+.col-2{
+  flex-grow:4;
+}
+
+.skill-subtext{
+  align-self:center; 
 }
 
 .sort-buttons{

@@ -6,7 +6,7 @@ import React, {useState} from "react";
 import Projects from './Projects';
 import project_list from "./project_list";
 import skill_levels from "./skill_levels";
-import skills from "./skill_set";
+import {skills, skill_images} from "./skill_set";
 
 
 const projectX = 30;
@@ -67,7 +67,10 @@ function App() {
                 opacity = 1;
               }
               return <div style={{opacity: opacity}}>
-                {skill_name} : {skill_levels[skills[skill_name]]}
+                {skill_images[skill_name]}
+                <div className={"skill-subtext"}>
+                  {skill_name} : {skill_levels[skills[skill_name]]}
+                </div>
                 </div>
             })
   return (
