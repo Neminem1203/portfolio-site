@@ -1,4 +1,4 @@
-let skill_levels = {
+let skills = {
     "Python": 3,
     "Ruby": 2,
     "CPP": 2,
@@ -22,4 +22,4 @@ let skill_levels = {
 
 
 
-export default skil_levels;
+export default skills;

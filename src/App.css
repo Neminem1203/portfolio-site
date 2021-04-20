@@ -115,6 +115,9 @@ body{
 
 .skills{
   display:flex;
-  justify-content: space-around;
-  
+  justify-content: space-evenly;
+  flex-wrap:wrap;
+}
+.skills div{
+  width: 15%;
 }
