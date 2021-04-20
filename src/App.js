@@ -95,6 +95,7 @@ function App() {
         <h1>Paul Tan</h1>
         <h3>Software Developer</h3>
         <p>Hey! Welcome to my portfolio site! You can drag my portfolio sites around and double click to open them for more information with live links and github links</p>
+        <p>Below are my skills. Unsorted is the way I prefer it displayed, but you can sort it via alphabetical, reverse alphabetical, proficiency, and non-proficient</p>
         <div className="skill-legend">
         {/* {Object.keys(skill_levels).map(num => {return <div>
             {num} : {skill_levels[num]}
