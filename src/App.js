@@ -17,8 +17,7 @@ function App() {
   const [search, setSearch] = useState("");
   const skillset = Object.keys(skills).map(skill_name => {
             let opacity = 0.5;
-            const reg_ex = new RegExp(search.toLowerCase());
-            debugger
+            const reg_ex = new RegExp(search.replace(/[#-.]|[[-^]|[?|{}]/g, '\\$&').toLowerCase());
             if(search == "" || reg_ex.test(skill_name.toLowerCase())){
               opacity = 1;
             }

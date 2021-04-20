@@ -2,6 +2,7 @@ let skills = {
     "Python": 3,
     "Ruby": 2,
     "CPP": 2,
+    "Java": 2,
     "Rails": 1,
     "JavaScript": 2,
     "React": 2,
@@ -16,8 +17,8 @@ let skills = {
     "HTML5": 2,
     "CSS3": 2,
     "LibGDX": 2,
-    "MachineLearning": 0,
-    "ArtificialIntelligence": 0,
+    "ML": 0,
+    "AI": 0,
 }
 
 
