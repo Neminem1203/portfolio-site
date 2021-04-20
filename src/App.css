@@ -106,3 +106,15 @@ body{
 .mainScreen{
   color:#AAA;
 }
+
+.skill-legend{
+  display:flex;
+  justify-content: space-around;
+}
+
+
+.skills{
+  display:flex;
+  justify-content: space-around;
+  
+}
