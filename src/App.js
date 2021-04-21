@@ -77,10 +77,6 @@ function App() {
     <div className="App">
       <div className="bookshelf"> 
       <b>Portfolio</b>
-      <br/>
-      Double Click to Toggle
-      <br/>
-      Draggable Boxes
         {project_list.map((project,idx) => {
           return <Projects 
             title={project.title}
@@ -116,7 +112,7 @@ function App() {
           }}>Proficiency</div>
         </div>
         <div>
-          <input type="text" onChange={(e)=>{setSearch(e.currentTarget.value)}}></input>
+          Filter: <input type="text" onChange={(e)=>{setSearch(e.currentTarget.value)}}></input>
         </div>
         <br />
         <div className="skills">
