@@ -61,7 +61,7 @@ function App() {
   
   }
   const skillset = skill_list.map(skill_name => {
-              let opacity = 0.5;
+              let opacity = 0.15;
               const reg_ex = new RegExp(search.replace(/[#-.]|[[-^]|[?|{}]/g, '\\$&').toLowerCase());
               if(search == "" || reg_ex.test(skill_name.toLowerCase())){
                 opacity = 1;
