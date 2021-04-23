@@ -165,8 +165,9 @@ body{
   justify-content: center;
 }
 
-.resetbutton{
+.search-buttons{
   background-color:gray;
+  color: white;
   border:1px black;
   width: 33%;
   margin: 10px auto;
@@ -181,8 +182,9 @@ body{
   justify-content: space-around;
 }
 .search-by-buttons > div{
-  margin: 5px;
   background-color: gray;
+  color: white;
+  margin: 5px;
   padding: 5px;
   cursor: pointer;
 }

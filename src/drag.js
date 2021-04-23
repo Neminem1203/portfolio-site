@@ -7,7 +7,8 @@ const Container = styled.div`
     cursor: pointer;
     padding: 8px;
     margin-bottom: 5px;
-    background-color: ${props => props.isDragging ? 'lightgray' : 'gray' }
+    background-color: ${props => props.isDragging ? 'lightgray' : 'gray' };
+    color: ${props => props.isDragging ? 'black' : 'white' };
 `;
 
 export default class Drag extends React.Component{

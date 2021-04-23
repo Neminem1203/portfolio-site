@@ -187,9 +187,43 @@ function App() {
         <div className="skills">
           {skillset}
         </div>
-          <div className="resetbutton" onClick={()=>{setColumns(initialData)}}>Reset</div>
+          <div className="search-buttons" onClick={()=>{setColumns(initialData)}}>Reset</div>
           <div className="search-by-buttons">
-            <div onClick={()=>{
+
+            <div className="search-buttons" onClick={()=>{
+              let skillDict = {...initialSkillDict}
+              columns.columns.search_project.id_list.map(project_name => {
+                columns.projects[project_name].content.map(skill_name=>{
+                  skillDict[skill_name] = true;
+                })
+              })
+              let unusedSkills = []
+              let usedSkills = []
+              Object.keys(skillDict).map(skill_name => {
+                if(skillDict[skill_name]){
+                  usedSkills.push(skill_name)
+                } else {
+                  unusedSkills.push(skill_name)
+                }
+              })
+              const newState = {
+                ...columns,
+                columns:{
+                  ...columns.columns,
+                  'skills': {
+                    ...columns.columns.skills,
+                    id_list: unusedSkills
+                  },
+                  'search_skill':{
+                    ...columns.columns.search_skill,
+                    id_list: usedSkills,
+                  }
+                }
+              }
+              setColumns(newState)
+            }}>Search By Projects</div>
+
+            <div className="search-buttons" onClick={()=>{
               let projectDict = {...initialProjectDict}
               columns.columns.search_skill.id_list.map(skill_name => {
                 Object.keys(columns.projects).map(project_name=>{
@@ -223,47 +257,15 @@ function App() {
               debugger
               setColumns(newState);
             }}>Search By Skill</div>
-            <div onClick={()=>{
-              let skillDict = {...initialSkillDict}
-              columns.columns.search_project.id_list.map(project_name => {
-                columns.projects[project_name].content.map(skill_name=>{
-                  skillDict[skill_name] = true;
-                })
-              })
-              let unusedSkills = []
-              let usedSkills = []
-              Object.keys(skillDict).map(skill_name => {
-                if(skillDict[skill_name]){
-                  usedSkills.push(skill_name)
-                } else {
-                  unusedSkills.push(skill_name)
-                }
-              })
-              const newState = {
-                ...columns,
-                columns:{
-                  ...columns.columns,
-                  'skills': {
-                    ...columns.columns.skills,
-                    id_list: unusedSkills
-                  },
-                  'search_skill':{
-                    ...columns.columns.search_skill,
-                    id_list: usedSkills,
-                  }
-                }
-              }
-              setColumns(newState)
-            }}>Search By Projects</div>
           </div>
           <div className="project-skill-filter">
             <DragDropContext onDragEnd={onDragEnd}>
-              {skill_column}
-              {filter_skill_column}
+              {project_column}
+              {filter_project_column}
             </DragDropContext>
             <DragDropContext onDragEnd={onDragEnd}>
-              {filter_project_column}
-              {project_column}
+              {filter_skill_column}
+              {skill_column}
             </DragDropContext>
           </div>
       </div>
