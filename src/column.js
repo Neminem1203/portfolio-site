@@ -14,7 +14,7 @@ const Title = styled.h3`
 `;
 const DragList = styled.div`
     padding: 8px;
-    background-color: ${props => props.isDraggingOver ? '#666' : '#222'}
+    background-color: ${props => props.isDraggingOver ? '#555' : '#222'}
 `;
 
 

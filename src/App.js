@@ -28,6 +28,18 @@ function reverseProficienySort(a,b){
   return skills[a] - skills[b];
 }
 
+let initialSkillDict = {}
+initialData.columns.skills.id_list.map(skill_name => {
+  initialSkillDict[skill_name] = false;
+  return null;
+})
+
+let initialProjectDict = {}
+initialData.columns.projects.id_list.map(project_name => {
+  initialProjectDict[project_name] = false;
+  return null;
+})
+
 
 function App() {
   const [search, setSearch] = useState("");
@@ -85,7 +97,6 @@ function App() {
       if(!destination || 
         (destination.droppableId === source.droppableId && destination.index === source.index)
         ) return;
-        debugger
       if(destination.droppableId === source.droppableId){
         // same table
         const column = columns.columns[source.droppableId];
@@ -178,8 +189,72 @@ function App() {
         </div>
           <div className="resetbutton" onClick={()=>{setColumns(initialData)}}>Reset</div>
           <div className="search-by-buttons">
-            <div onClick={()=>{setColumns(initialData)}}>Search By Skill</div>
-            <div onClick={()=>{setColumns(initialData)}}>Search By Projects</div>
+            <div onClick={()=>{
+              let projectDict = {...initialProjectDict}
+              columns.columns.search_skill.id_list.map(skill_name => {
+                Object.keys(columns.projects).map(project_name=>{
+                if(!projectDict[project_name] && columns.projects[project_name].content.includes(skill_name)){
+                  projectDict[project_name] = true;
+                }})})
+
+                let unusedProjects = []
+                let usedProjects = []
+                Object.keys(projectDict).map(project_name=>{
+                  if(projectDict[project_name]){
+                    usedProjects.push(project_name);
+                  } else {
+                    unusedProjects.push(project_name);
+                  }
+                })
+                const newState = {
+                ...columns,
+                columns:{
+                  ...columns.columns,
+                  'projects': {
+                    ...columns.columns.projects,
+                    id_list: unusedProjects
+                  },
+                  'search_project':{
+                    ...columns.columns.search_project,
+                    id_list: usedProjects,
+                  }
+                }
+              }
+              debugger
+              setColumns(newState);
+            }}>Search By Skill</div>
+            <div onClick={()=>{
+              let skillDict = {...initialSkillDict}
+              columns.columns.search_project.id_list.map(project_name => {
+                columns.projects[project_name].content.map(skill_name=>{
+                  skillDict[skill_name] = true;
+                })
+              })
+              let unusedSkills = []
+              let usedSkills = []
+              Object.keys(skillDict).map(skill_name => {
+                if(skillDict[skill_name]){
+                  usedSkills.push(skill_name)
+                } else {
+                  unusedSkills.push(skill_name)
+                }
+              })
+              const newState = {
+                ...columns,
+                columns:{
+                  ...columns.columns,
+                  'skills': {
+                    ...columns.columns.skills,
+                    id_list: unusedSkills
+                  },
+                  'search_skill':{
+                    ...columns.columns.search_skill,
+                    id_list: usedSkills,
+                  }
+                }
+              }
+              setColumns(newState)
+            }}>Search By Projects</div>
           </div>
           <div className="project-skill-filter">
             <DragDropContext onDragEnd={onDragEnd}>
