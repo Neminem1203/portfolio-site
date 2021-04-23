@@ -55,6 +55,7 @@ body{
   justify-content:flex-start;
   align-items:center;
   transition: 3s;
+  border-radius: 0 0 10px 10px;
 }
 
 .hidden{
@@ -64,6 +65,7 @@ body{
 .hideButton{
   display:flex;
   justify-content:flex-start;
+  border-radius: 10px 10px 0 0;
 }
 
 /*https://stackoverflow.com/questions/826782/how-to-disable-text-selection-highlighting*/
@@ -100,6 +102,7 @@ body{
 }
 .book{
   width:130px;
+  border-radius:10px;
 }
 
 .mainScreen{
@@ -108,7 +111,10 @@ body{
 
 .skill-legend{
   display:flex;
-  justify-content: space-around;
+  justify-content: center;
+}
+.skill-legend > div{
+  margin-left: 10px;
 }
 
 
@@ -152,4 +158,31 @@ body{
 
 .reversed{
   background-color:gray;
+}
+.project-skill-filter{
+  display:flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.resetbutton{
+  background-color:gray;
+  border:1px black;
+  width: 33%;
+  margin: 10px auto;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.search-by-buttons{
+  display: flex;
+  width: 50%;
+  margin: auto;
+  justify-content: space-around;
+}
+.search-by-buttons > div{
+  margin: 5px;
+  background-color: gray;
+  padding: 5px;
+  cursor: pointer;
 }

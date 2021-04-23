@@ -1,7 +1,7 @@
 import Draggable from "./Draggable";
 import LiveGitLinks from "./LiveGitLinks";
 
-export default (props) =>{
+const Project = (props) =>{
     return <Draggable title={props.title} x={props.x} y={props.y} backgroundColor={props.backgroundColor} toggleable={true}>
         <h1>{props.title}</h1>
         <h3>{props.subtitle}</h3>
@@ -9,3 +9,5 @@ export default (props) =>{
         <LiveGitLinks liveLink={props.liveLink} gitLink={props.gitLink}/>
     </Draggable> 
 }
+
+export default Project;

@@ -1,17 +1,17 @@
 import React from 'react';
 
 
-export default (props) =>{
+const LiveGitLinks = (props) => {
     let liveRef = <></>
     let sep = (props.gitLink && props.liveLink ? "|" : <></>)
     let gitRef = <></>
     
     if(props.liveLink !== undefined){
-        liveRef = <a href={props.liveLink} target="_blank">Live Link</a> 
+        liveRef = <a href={props.liveLink} target="_blank" rel="noreferrer">Live Link</a> 
     }
 
     if(props.gitLink !== undefined){
-            gitRef = <a href={props.gitLink} target="_blank">Github</a>
+            gitRef = <a href={props.gitLink} target="_blank" rel="noreferrer">Github</a>
     }
     return <div className="site-links">
         {liveRef}
@@ -19,3 +19,5 @@ export default (props) =>{
         {gitRef}
     </div>
 }
+
+export default LiveGitLinks;
