@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/portfolio-site/static/css/main.705102f4.chunk.css",
-    "main.js": "/portfolio-site/static/js/main.a2aa26f5.chunk.js",
-    "main.js.map": "/portfolio-site/static/js/main.a2aa26f5.chunk.js.map",
+    "main.css": "/portfolio-site/static/css/main.484c87cc.chunk.css",
+    "main.js": "/portfolio-site/static/js/main.800ca6f3.chunk.js",
+    "main.js.map": "/portfolio-site/static/js/main.800ca6f3.chunk.js.map",
     "runtime-main.js": "/portfolio-site/static/js/runtime-main.b8c12e47.js",
     "runtime-main.js.map": "/portfolio-site/static/js/runtime-main.b8c12e47.js.map",
     "static/js/2.1a0fd8d2.chunk.js": "/portfolio-site/static/js/2.1a0fd8d2.chunk.js",
@@ -10,13 +10,13 @@
     "static/js/3.e26882b4.chunk.js": "/portfolio-site/static/js/3.e26882b4.chunk.js",
     "static/js/3.e26882b4.chunk.js.map": "/portfolio-site/static/js/3.e26882b4.chunk.js.map",
     "index.html": "/portfolio-site/index.html",
-    "static/css/main.705102f4.chunk.css.map": "/portfolio-site/static/css/main.705102f4.chunk.css.map",
+    "static/css/main.484c87cc.chunk.css.map": "/portfolio-site/static/css/main.484c87cc.chunk.css.map",
     "static/js/2.1a0fd8d2.chunk.js.LICENSE.txt": "/portfolio-site/static/js/2.1a0fd8d2.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.b8c12e47.js",
     "static/js/2.1a0fd8d2.chunk.js",
-    "static/css/main.705102f4.chunk.css",
-    "static/js/main.a2aa26f5.chunk.js"
+    "static/css/main.484c87cc.chunk.css",
+    "static/js/main.800ca6f3.chunk.js"
   ]
 }
