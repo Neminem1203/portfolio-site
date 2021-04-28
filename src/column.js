@@ -31,7 +31,7 @@ export default class Column extends React.Component {
                             ref={provided.innerRef}
                             isDraggingOver={snapshot.isDraggingOver}
                         >
-                            {this.props.column.id_list.map((id,index) => <Drag key={id} id={id} index={index}/>)}
+                            {this.props.column.id_list.map((id,index) => <Drag key={id} id={id} index={index} />)}
                             {provided.placeholder}
                         </DragList>
                         }}

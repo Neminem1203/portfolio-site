@@ -1,5 +1,5 @@
 import './App.css';
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {DragDropContext} from 'react-beautiful-dnd';
 import Projects from './Projects';
 import project_list from "./project_list";
@@ -45,6 +45,18 @@ function App() {
   const [search, setSearch] = useState("");
   const [sortState, setSortState] = useState(0);
   const [columns, setColumns] = useState(initialData);
+  const [timer, setTimer] = useState(10);
+  useEffect(()=>{
+    if(timer > 0){
+      const timerId = setInterval(()=>{
+        setTimer(oldTime => oldTime - 1);
+      }, 1000);
+      console.log(timer)
+      return ()=> clearInterval(timerId);
+    } else {
+      console.log(timer)
+    }
+  }, [timer])
   const sortFuncs = [reverseAlpbaeticalSort, proficiencySort,reverseProficienySort];
   let skill_list = Object.keys(skills);
   let buttonClass1 = "sort-buttons";
@@ -164,6 +176,9 @@ function App() {
         <h3>Software Developer</h3>
         <p>Hey! Welcome to my portfolio site! You can drag my portfolio sites around and double click to open them for more information with live links and github links</p>
         <p>Below are my skills. Unsorted is the way I prefer it displayed, but you can sort it via alphabetical, reverse alphabetical, proficiency, and non-proficient</p>
+        {timer}
+        <br/>
+        <button onClick={()=>{setTimer(10)}}>Reset Timer</button>
         <div className="skill-legend">
         {/* {Object.keys(skill_levels).map(num => {return <div>
             {num} : {skill_levels[num]}

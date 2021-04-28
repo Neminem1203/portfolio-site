@@ -13,7 +13,7 @@ const Container = styled.div`
 
 export default class Drag extends React.Component{
     render(){
-        return <Draggable draggableId={this.props.id} index={this.props.index}>
+        return <Draggable draggableId={this.props.id} index={this.props.index} >
             {(provided, snapshot)=>{
             return <Container
                     ref={provided.innerRef}
