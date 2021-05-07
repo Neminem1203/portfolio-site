@@ -46,6 +46,13 @@ function App() {
   const [sortState, setSortState] = useState(0);
   const [columns, setColumns] = useState(initialData);
   const [timer, setTimer] = useState(10);
+  const [dt, setDT] = useState(new Date());
+  useEffect(()=>{
+    const dtTimer = setInterval(()=>{
+      setDT(new Date());
+    }, 1000)
+    return () => clearInterval(dtTimer);
+  }, [dt])
   useEffect(()=>{
     if(timer > 0){
       const timerId = setInterval(()=>{
@@ -176,6 +183,8 @@ function App() {
         <h3>Software Developer</h3>
         <p>Hey! Welcome to my portfolio site! You can drag my portfolio sites around and double click to open them for more information with live links and github links</p>
         <p>Below are my skills. Unsorted is the way I prefer it displayed, but you can sort it via alphabetical, reverse alphabetical, proficiency, and non-proficient</p>
+        {dt.toString()}
+        <br/>
         {timer}
         <br/>
         <button onClick={()=>{setTimer(10)}}>Reset Timer</button>
